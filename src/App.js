@@ -1,0 +1,12 @@
+import React from 'react';
+import {View} from 'react-native';
+
+const App =  ()=>{
+    return(
+        <View>
+hi
+        </View>
+    )
+}
+
+export default App;

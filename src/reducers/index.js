@@ -1,0 +1,12 @@
+import { combineReducers } from 'redux';
+import LibraryReducer from './LibraryReducer';
+import SelectionReducer from './SelectionReducer';
+
+export default combineReducers({
+  libraries: LibraryReducer,
+  selectedLibraryId: SelectionReducer
+});
+
+
+// console.log(store.getState());
+// output: {libraries[{id:1,title:'webpack'}{id:2,title:'webpack'}]}
