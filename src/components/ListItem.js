@@ -12,10 +12,12 @@ import {connect} from 'react-redux';
 class ListItem extends Component {
 
     renderDescription() {
-        const {selectedLibraryId, library} = this.props;
-        if (selectedLibraryId === library.id) {
+        const {library} = this.props;
+        if (expanded) {
             return (
-                <Text>{library.description}</Text>
+                <CardSection>
+                    <Text style={{flex:1}}>{library.description}</Text>
+                </CardSection>
             );
         }
     }
@@ -24,7 +26,6 @@ class ListItem extends Component {
         const {titleStyle} = styles;
         const {id, title} = this.props.library;
 
-        const shouldExpand = true;
 
         return (
             <TouchableWithoutFeedback
@@ -49,9 +50,10 @@ const styles = {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state,ownProps) => {
+    const expanded = state.selectedLibraryId === ownProps.library.id;
     return {
-        selectedLibraryId: state.selectedLibraryId
+        expanded: expanded
     }
 }
 
