@@ -1,3 +1,4 @@
+//Record selected id
 export default (state = null, action) => {
   switch (action.type) {
     case 'select_library':

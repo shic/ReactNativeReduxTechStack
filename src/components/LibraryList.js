@@ -5,10 +5,11 @@ import {
     FlatList,
     Text
 } from 'react-native';
+import ListItem from './ListItem';
 
-class LibraryList extends Component{
+class LibraryList extends Component {
 
-    componentWillMount(){
+    componentWillMount() {
 
     }
 
@@ -22,14 +23,19 @@ class LibraryList extends Component{
         });
     };
 
-    _renderItem = ({item}) => (
-        <Text>{item.title}</Text>
+    _renderItem = ({item: library}) => (
+        <ListItem
+            library = {library}
+            id={library.id}
+            title={library.title}
+        />
+
     );
 
     render() {
         console.log(this.props);
 
-        return(
+        return (
             <FlatList
                 data={this.props.libraries}
                 renderItem={this._renderItem}
@@ -38,9 +44,9 @@ class LibraryList extends Component{
     }
 }
 
-const mapStateToProps = state =>{
+const mapStateToProps = state => {
     console.log(state);
-    return{
+    return {
         libraries: state.libraries
     }
 }
