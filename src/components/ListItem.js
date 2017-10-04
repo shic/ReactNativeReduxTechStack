@@ -12,7 +12,7 @@ import {connect} from 'react-redux';
 class ListItem extends Component {
 
     renderDescription() {
-        const {library} = this.props;
+        const {library,expanded} = this.props;
         if (expanded) {
             return (
                 <CardSection>
